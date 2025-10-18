@@ -1,0 +1,39 @@
+create database warehouse;
+go 
+use warehouse;
+go
+
+create table date_dimension(
+day_number int primary key,
+week_number int,
+month_number int,
+year_number int);
+
+create table customer_dimension(
+customer_id int primary key,
+customer_name varchar(30),
+other_details varchar(20));
+
+create table data_warehouse_facts(
+fact_id int primary key,
+customer_id int,
+day_number int,
+geographic_area varchar(20),
+product_code int,
+fact_name varchar(30),
+fact_description varchar(20),
+fact_amount money,
+fact_count int,
+other_fact_details varchar(40));
+
+create table product_dimension(
+product_code int primary key,
+product_name varchar(30),
+other_product_details varchar(20));
+
+create table geographic_dimension(
+geographic_area varchar(20) primary key,
+geographic_area_name varchar(30),
+region varchar(30),
+country varchar(30),
+other_region_details varchar(40));
